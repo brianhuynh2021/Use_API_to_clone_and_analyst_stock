@@ -38,5 +38,5 @@ class RetrieveFinancialDataView(APIView):
                     serializer.save()
         # return the data that we get from API but not save all due to we may save the records before
         return Response(new_data)
-    
-# This is task for retrieve data to do task 1
+
+# This is task for retrieve data to do task 1 - Completed task1
