@@ -1,7 +1,7 @@
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from api.models.financial_data_model import FinancialData
+from api.models.financial_data_model import FinancialDataModel
 from api.utils.is_valid_start_end_dates import valid_date, valid_start_end_date
 
 
@@ -42,7 +42,7 @@ class StatisticsView(APIView):
         symbol_list = symbols.split(',')
 
         # Query financial data with filters
-        financial_data_query = FinancialData.objects.filter(symbol__in=symbol_list, date__range=(start_date, end_date))
+        financial_data_query = FinancialDataModel.objects.filter(symbol__in=symbol_list, date__range=(start_date, end_date))
         if financial_data_query.count() == 0:
             return Response({"info": {"error": "No financial data found."}}, status=status.HTTP_404_NOT_FOUND)
         # Calculate statistics for each symbol

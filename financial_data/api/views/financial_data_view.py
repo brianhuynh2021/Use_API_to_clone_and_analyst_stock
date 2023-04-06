@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from api.models.financial_data_model import FinancialData
+from api.models.financial_data_model import FinancialDataModel
 from api.serializers.financial_data_serializer import FinancialDataSerializer
 from api.utils.is_valid_start_end_dates import valid_date, valid_start_end_date
 
@@ -36,7 +36,7 @@ class FinancialDataView(APIView):
         page = int(request.query_params.get('page', 1))
 
         # Query financial data with filters
-        financial_data_query = FinancialData.objects.all()
+        financial_data_query = FinancialDataModel.objects.all()
         if financial_data_query.count() == 0:
             return Response({"error": "No financial data found."}, status=status.HTTP_404_NOT_FOUND)
         

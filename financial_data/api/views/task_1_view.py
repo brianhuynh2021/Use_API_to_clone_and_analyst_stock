@@ -1,23 +1,12 @@
 import requests
-from datetime import datetime, timedelta
 from decimal import Decimal
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from api.models.financial_data_model import FinancialData
+from api.models.financial_data_model import FinancialDataModel
 from api.serializers.financial_data_serializer import FinancialDataSerializer
 
 class RetrieveFinancialDataView(APIView):
     def get(self, request, symbol=None):
-        DEFAULT_PAGE_LIMIT = 5
-        two_weeks_ago = (datetime.now() - timedelta(days=14)).date()
-
-        # check if financial data for the symbol and the last two weeks exist in the database
-        existing_data = FinancialData.objects.filter(symbol=symbol, date__gte=two_weeks_ago)
-        if existing_data.exists():
-            serializer = FinancialDataSerializer(existing_data, many=True)
-            return Response(serializer.data)
-
-        # retrieve financial data from AlphaVantage
         api_key = "WB0DWGGXUH6PQYNG"
         url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol={symbol}&outputsize=compact&apikey={api_key}"
         response = requests.get(url)
@@ -25,26 +14,29 @@ class RetrieveFinancialDataView(APIView):
             return Response({"error": "Failed to retrieve financial data"}, status=500)
 
         api_data = response.json().get('Time Series (Daily)', {})
+        retrieve_days = 14
+        # Retrieve data in 14 days
+        retrieve_datas = list(api_data.items())[:retrieve_days]
         new_data = []
-        for date_str, daily_data in api_data.items():
-            date = datetime.strptime(date_str, '%Y-%m-%d').date()
-            if date < two_weeks_ago:
-                break
+        for item in retrieve_datas:
             financial_data = {
-                "symbol": symbol,
-                "date": date,
-                "open_price": Decimal(daily_data.get("1. open")),
-                "close_price": Decimal(daily_data.get("4. close")),
-                "volume": int(daily_data.get("6. volume")),
-            }
+                    "symbol": symbol,
+                    "date": item[0],
+                    "open_price": round(float(item[1].get("1. open")),2),
+                    "close_price": round(float(item[1].get("4. close")),2),
+                    "volume": int(item[1].get("6. volume")),
+                }
             new_data.append(financial_data)
-
-        # save new financial data to database
-        FinancialData.objects.bulk_create([FinancialData(**item) for item in new_data])
-
-        # return serialized financial data
-        data = new_data
-        serializer = FinancialDataSerializer(data, many=True)
-        return Response(serializer.data)
+        # Insert new_data to the database if it's not exist
+        for data in new_data:
+            serializer = FinancialDataSerializer(data=data)
+            if serializer.is_valid():
+                # check record exist in database
+                existing_record = FinancialDataModel.objects.filter(**serializer.validated_data).first()
+                # not exist save the record
+                if not existing_record:
+                    serializer.save()
+        # return the data that we get from API but not save all due to we may save the records before
+        return Response(new_data)
     
-# This is for task 1
+# This is task for retrieve data to do task 1
