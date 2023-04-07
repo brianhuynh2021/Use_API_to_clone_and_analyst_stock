@@ -2,9 +2,8 @@ version: '3.1'
 
 services:
   web:
-    build: .
+    build: ./financial_data
     ports:
       - "8000:8000"
-    command: python financial_data/manage.py runserver 0.0.0.0:8000
     env_file:
       - ./financial_data/.env

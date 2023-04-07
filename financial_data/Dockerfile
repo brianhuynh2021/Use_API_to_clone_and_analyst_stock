@@ -7,11 +7,14 @@ ENV PYTHONUNBUFFERED 1
 # set work directory
 WORKDIR .
 
-COPY requirements.txt .
+COPY ./requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
 EXPOSE 8000/tcp
+
+
+ENTRYPOINT ./entrypoint.sh
 
