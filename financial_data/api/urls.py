@@ -1,5 +1,5 @@
 from django.urls import path
-from api.views.task_1_view import RetrieveFinancialDataView
+from api.views.get_raw_data_view import RetrieveFinancialDataView
 from api.views.financial_data_view import FinancialDataView
 from api.views.staticstics_view import StatisticsView
 

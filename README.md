@@ -226,3 +226,9 @@ Your solution will be evaluated based on the following criteria:
 ## Additional Notes:
 
 You have 7 days to complete this assignment and submit your solution.
+
+please run these before you run docker
+
+- python manage.py makemigrations
+- python manage.py migrates
+- python manage.py runserver
