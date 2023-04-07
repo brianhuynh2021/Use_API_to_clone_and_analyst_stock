@@ -7,3 +7,9 @@ class PaginationSerializer(serializers.Serializer):
     limit = serializers.IntegerField(required=False)
     page = serializers.IntegerField(required=False)
      
+    def validate(self, data):
+        start_date = data.get('start_date')
+        end_date = data.get('end_date')
+        if start_date and end_date and start_date > end_date:
+            raise serializers.ValidationError("start_date cannot be greater than end_date.")
+        return data
