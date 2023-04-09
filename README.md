@@ -228,6 +228,11 @@ Your solution will be evaluated based on the following criteria:
 You have 7 days to complete this assignment and submit your solution.
 
 *** Here I save my API_KEY as .env file and load it once I clone the repo (This .env file) not upload to github and add .env to .gitignore file
+
+## I use Django Rest Framework for doing this assigment.
+- Task 1 completed: get_raw_data_view.py file
+- Task 2 completed: financial_data_view.py and staticstic_view.py
+- Otherwise, I did export post_request.json
 ## Before to call thea API please follow steps
 *** Important
 Step 1: Please copy .env.sample into .env by 
