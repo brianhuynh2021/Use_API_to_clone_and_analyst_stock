@@ -226,9 +226,15 @@ Your solution will be evaluated based on the following criteria:
 ## Additional Notes:
 
 You have 7 days to complete this assignment and submit your solution.
+## Before to call thea API please follow steps
 
-please run these before you run docker
+- If you wanna run project as local without docker running please do this
+    - python manage.py makemigrations
+    - python manage.py migrates
+    - python manage.py runserver
+- If you use docker just run 
+    - doceker compose up -d --build
+    - docker compose up
 
-- python manage.py makemigrations
-- python manage.py migrates
-- python manage.py runserver
+Thank you
+

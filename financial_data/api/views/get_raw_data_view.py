@@ -1,13 +1,17 @@
-import requests
+import os, requests
 from decimal import Decimal
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from api.models.financial_data_model import FinancialDataModel
 from api.serializers.financial_data_serializer import FinancialDataSerializer
+from dotenv import load_dotenv
 
+
+load_dotenv()
+API_KEY = os.getenv("API_KEY")
 class RetrieveFinancialDataView(APIView):
     def get(self, request, symbol=None):
-        api_key = "WB0DWGGXUH6PQYNG"
+        api_key = API_KEY     
         url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol={symbol}&outputsize=compact&apikey={api_key}"
         response = requests.get(url)
         if response.status_code != 200:
