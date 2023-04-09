@@ -231,7 +231,9 @@ You have 7 days to complete this assignment and submit your solution.
 ## Before to call thea API please follow steps
 *** Important
 Step 1: Please copy .env.sample into .env by 
-    - cp .env.sample .env
+    - cp .env.sample .env 
+    Here in the requirement of this assignment the only secret_key is API_KEY
+    if for production environment, we can restrict access to the API key by setting up access controls.
 Step 2: 
 - If you wanna run project as local without docker running please do this
     - python manage.py makemigrations
