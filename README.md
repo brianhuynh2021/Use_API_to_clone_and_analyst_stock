@@ -226,8 +226,13 @@ Your solution will be evaluated based on the following criteria:
 ## Additional Notes:
 
 You have 7 days to complete this assignment and submit your solution.
-## Before to call thea API please follow steps
 
+*** Here I save my API_KEY as .env file and load it once I clone the repo (This .env file) not upload to github and add .env to .gitignore file
+## Before to call thea API please follow steps
+*** Important
+Step 1: Please copy .env.sample into .env by 
+    - cp .env.sample .env
+Step 2: 
 - If you wanna run project as local without docker running please do this
     - python manage.py makemigrations
     - python manage.py migrates
