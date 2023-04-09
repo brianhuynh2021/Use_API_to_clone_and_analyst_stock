@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "aca0c06f-5990-4027-9c5a-493924744b75",
+		"name": "my_project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23850107"
+	},
+	"item": [
+		{
+			"name": "retrieve_data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/financial-data/IBM",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"financial-data",
+						"IBM"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Staticstics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/statistics?start_date=2023-04-05&end_date=2023-04-04&symbol=APPL",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"statistics"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2023-04-05"
+						},
+						{
+							"key": "end_date",
+							"value": "2023-04-04"
+						},
+						{
+							"key": "symbol",
+							"value": "APPL"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get finanical data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/financial-data/IBM",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"financial-data",
+						"IBM"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
