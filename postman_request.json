@@ -1,18 +1,30 @@
 {
 	"info": {
-		"_postman_id": "aca0c06f-5990-4027-9c5a-493924744b75",
-		"name": "my_project",
+		"_postman_id": "f952ce7c-caf6-4d38-b650-bf33201249d5",
+		"name": "postman_request.json",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23850107"
 	},
 	"item": [
 		{
 			"name": "retrieve_data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/financial-data/IBM",
+					"raw": "http://127.0.0.1:8000/api/retrieve_financial_data/IBM",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -23,12 +35,92 @@
 					"port": "8000",
 					"path": [
 						"api",
-						"financial-data",
+						"retrieve_financial_data",
 						"IBM"
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "get stock data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/retrieve_financial_data/IBM",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"retrieve_financial_data",
+								"IBM"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 09 Apr 2023 17:47:17 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.8.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1327"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"symbol\": \"IBM\",\n        \"date\": \"2023-04-06\",\n        \"open_price\": 132.16,\n        \"close_price\": 130.5,\n        \"volume\": 3050581\n    },\n    {\n        \"symbol\": \"IBM\",\n        \"date\": \"2023-04-05\",\n        \"open_price\": 131.37,\n        \"close_price\": 132.14,\n        \"volume\": 2898759\n    },\n    {\n        \"symbol\": \"IBM\",\n        \"date\": \"2023-04-04\",\n        \"open_price\": 131.99,\n        \"close_price\": 131.6,\n        \"volume\": 3382783\n    },\n    {\n        \"symbol\": \"IBM\",\n        \"date\": \"2023-04-03\",\n        \"open_price\": 130.97,\n        \"close_price\": 132.06,\n        \"volume\": 3840139\n    },\n    {\n        \"symbol\": \"IBM\",\n        \"date\": \"2023-03-31\",\n        \"open_price\": 129.47,\n        \"close_price\": 131.09,\n        \"volume\": 4524686\n    },\n    {\n        \"symbol\": \"IBM\",\n        \"date\": \"2023-03-30\",\n        \"open_price\": 130.16,\n        \"close_price\": 129.22,\n        \"volume\": 3561762\n    },\n    {\n        \"symbol\": \"IBM\",\n        \"date\": \"2023-03-29\",\n        \"open_price\": 130.12,\n        \"close_price\": 129.71,\n        \"volume\": 3279846\n    },\n    {\n        \"symbol\": \"IBM\",\n        \"date\": \"2023-03-28\",\n        \"open_price\": 129.18,\n        \"close_price\": 129.34,\n        \"volume\": 2889115\n    },\n    {\n        \"symbol\": \"IBM\",\n        \"date\": \"2023-03-27\",\n        \"open_price\": 126.47,\n        \"close_price\": 129.31,\n        \"volume\": 6524113\n    },\n    {\n        \"symbol\": \"IBM\",\n        \"date\": \"2023-03-24\",\n        \"open_price\": 123.36,\n        \"close_price\": 125.29,\n        \"volume\": 3812644\n    },\n    {\n        \"symbol\": \"IBM\",\n        \"date\": \"2023-03-23\",\n        \"open_price\": 123.81,\n        \"close_price\": 123.37,\n        \"volume\": 4651936\n    },\n    {\n        \"symbol\": \"IBM\",\n        \"date\": \"2023-03-22\",\n        \"open_price\": 127,\n        \"close_price\": 124.05,\n        \"volume\": 3549024\n    },\n    {\n        \"symbol\": \"IBM\",\n        \"date\": \"2023-03-21\",\n        \"open_price\": 126.9,\n        \"close_price\": 126.57,\n        \"volume\": 3856345\n    },\n    {\n        \"symbol\": \"IBM\",\n        \"date\": \"2023-03-20\",\n        \"open_price\": 124.31,\n        \"close_price\": 125.94,\n        \"volume\": 4588304\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "Staticstics",
@@ -36,7 +128,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/statistics?start_date=2023-04-05&end_date=2023-04-04&symbol=APPL",
+					"raw": "http://127.0.0.1:8000/api/statistics?start_date=2023-03-17&end_date=2023-04-05&symbol=AAPL",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -52,20 +144,61 @@
 					"query": [
 						{
 							"key": "start_date",
-							"value": "2023-04-05"
+							"value": "2023-03-17"
 						},
 						{
 							"key": "end_date",
-							"value": "2023-04-04"
+							"value": "2023-04-05"
 						},
 						{
 							"key": "symbol",
-							"value": "APPL"
+							"value": "AAPL"
 						}
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Staticstics",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/statistics?start_date=2023-03-17&end_date=2023-03-17&symbol=APPL",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"statistics"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2023-03-17"
+								},
+								{
+									"key": "end_date",
+									"value": "2023-03-17"
+								},
+								{
+									"key": "symbol",
+									"value": "APPL"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "get finanical data",
@@ -73,23 +206,79 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/financial-data/IBM",
+					"raw": "http://localhost:8000/api/financial_data?start_date=2023-01-01&end_date=2023-04-05&symbol=AAPL&limit=10",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"api",
-						"financial-data",
-						"IBM"
+						"financial_data"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2023-01-01"
+						},
+						{
+							"key": "end_date",
+							"value": "2023-04-05"
+						},
+						{
+							"key": "symbol",
+							"value": "AAPL"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "get finanical data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/financial_data?start_date=2023-01-01&end_date=2023-04-05&symbol=AAPL&limit=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"financial_data"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2023-01-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2023-04-05"
+								},
+								{
+									"key": "symbol",
+									"value": "AAPL"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		}
 	]
 }
