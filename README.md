@@ -1,12 +1,6 @@
-# Take-Home Assignment
+use API, data processing and transformation, SQL, and implement a new API service in Python.
 
-The goal of this take-home assignment is to evaluate your abilities to use API, data processing and transformation, SQL, and implement a new API service in Python.
 
-You should first fork this repository, and then send us the code or the url of your forked repository via email.
-
-**Please do not submit any pull requests to this repository.**
-
-You need to perform the following **Two** tasks:
 
 ## Task1
 ### Problem Statement:
